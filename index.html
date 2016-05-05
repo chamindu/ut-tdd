@@ -1,148 +1,306 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+<meta charset="utf-8">
 
-		<title>Introduction to Unit Testing and Test Driven Development</title>
+<title>Introduction to Unit Testing and Test Driven Development</title>
 
-		<meta name="description" content="Introduction to Python/Django">
-		<meta name="author" content="Chamindu R. Munasinghe">
+<meta name="description" content="Introduction to Python/Django">
+<meta name="author" content="Chamindu R. Munasinghe">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="css/reveal.min.css">
+<link rel="stylesheet" href="css/theme/sky.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = 'css/print/pdf.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+</script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+<!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
 
-	<body>
+<body>
 
-		<div class="reveal">
+<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h2>Introduction to Unit Testing &amp; Test Driven Development</h2>
-					<p>
-          <small>Chamindu R. Munasinghe <br/>chamindu@calcey.com<br/>@chamindum</small>
-					</p>
-          <img style="border:none" src="img/calcey_logo.png"></img>
-				</section>
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+    <section>
+      <h2>Introduction to Unit Testing &amp; Test Driven Development</h2>
+      <p>
+      <small>Chamindu R. Munasinghe <br/>chamindu@calcey.com<br/>@chamindum</small>
+      </p>
+      <img style="border:none" src="img/calcey_logo.png"></img>
+    </section>
 
-				<section>
-					<h2>Agenda</h2>
-          <ul>
-            <li>Introduction to unit testing</li>
-            <li>Unit testing tutorial</li>
-            <li>Introduction to TDD</li>
-            <li>TDD Tutorial</li>
-            <li>Q&amp;A</li>
-          </ul>
+    <section>
+      <h2>Agenda</h2>
+      <ul>
+        <li>Introduction to unit testing</li>
+        <li>Unit testing tutorial</li>
+        <li>Introduction to TDD</li>
+        <li>TDD Tutorial</li>
+        <li>Q&amp;A</li>
+      </ul>
+    </section>
 
-				</section>
-        <section>
-          <h2>How do you test your code now?</h2>
-        </section>
+    <section>
+      <h2>Why do you test code?</h2>
+    </section>
 
-        <section>
-          <section>
-            <h2>Unit Testing Turotial</h2>
-          </section>
-          <section>
+    <section>
+      <section>
+        <h2>How do you test your code now?</h2>
+      </section>
+      <section>
+        <h2>Console output</h2>
+      </section>
+      <section>
+        <h2>Debugger</h2>
+      </section>
+      <section>
+        <h2>Test scripts</h2>
+      </section>
+    </section>
 
-          </section>
-        </section>
-        
-        <section>
-          <section>
-            <h2>Benefits of Unit Testing</h2>
-          </section>
-          <section>
-            <h2>Easy to change and refactor code</h2>
-          </section>
-          <section>
-            <h2>Reduces bugs</h2>
-          </section>
-          <section>
-            <h2>Drives good design</h2>
-          </section>
-          <section>
-            <h2>Facilitates Continous Integration</h2>
-          </section>
-        </section>
+    <section>
+      <section>
+        <h2>So what is a unit test?</h2>
+      </section>
+      <section>
+        <h2>Automated testing of code units</h2>
+      </section>
+      <section>
+        <h2>Usually written by developers</h2>
+      </section>
+      <section>
+        <h2>Isolated testing</h2>
+      </section>
+    </section>
 
-        <section>
-          <h1>Questions?</h1>
-        </section>
-        <section>
-          <h1>Thank You</h1>
-        </section>
-			</div>
+    <section>
+      <h2>Sample unit test</h2>
+      <p><pre><code class="java">
+        public class Calculator {
+          public int add(int number1, int number2) {
+            return number1 + number2;
+          }
+        }
+      </code></pre></p>
+      <p><pre><code class="java">
+        public class CalculatorTest {
+          @Test
+          public void addShouldReturnSum(int number1, int number2) {
+            Calculator calculator = new Calculator();  // Arrange
 
-		</div>
+            int result = calculator.Add(3, 2); // Act
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+            assertEqual(5, result); // Assert
 
-		<script>
+          }
+        }
+      </code></pre></p>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+    </section>
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+    <section>
+      <section>
+        <h2>Unit testing tutorial</h2>
+        <p>write a class that implements the basic functions of a bank account</p>
+        <ul>
+          <li>Account should maintain a balance</li>
+          <li>For simplicity use an integer to store balance</li>
+          <li>Constructor should take in an amount</li>
+          <li><em>credit(int amount)</em> should credit the given amount</li>
+          <li><em>debit(int amount)</em> should debit the given amount</li> 
+        </ul>
+      </section>
+      <section>
+        <p><pre><code class="java">
+    public class Account {
+      private int balance;
+    
+      public Account(int balance)
+      {
+          this.balance = balance;
+      }
+      
+      public void credit(int amount) {
+          this.balance += amount;
+      }
+      
+      public int getBalance() {
+          return this.balance;
+      }
+    }
+        </code></pre></p>
+      </section>
+    </section>
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
+    <section>
+      <section>
+        <h2>Benefits of Unit Testing</h2>
+      </section>
+      <section>
+        <h2>Finds problems early</h2>
+      </section>
+      <section>
+        <h2>Facilitates change & refactoring</h2>
+      </section>
+      <section>
+        <h2>Simplifies integration</h2>
+      </section>
+      <section>
+        <h2>Identify design issues</h2>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Unit testing best practices</h2>
+      </section>
+      <section>
+        <h2>Should be simple</h2>
+      </section>
+      <section>
+        <h2>Use descriptive names</h2>
+      </section>
+      <section>
+        <h2>Code coverage</h2>
+      </section>
+      <section>
+        <h2>Dont change/remove tests</h2>
+      </section>
+      <section>
+        <blockquote>Imperfect tests, run frequently, are much better than perfect tests that are never written at all - Martin Fowler</blockquote>
+      </section>
+    </section>
 
-				multiplex: {
-			        // Example values. To generate your own, see the socket.io server instructions.
-			        secret: '14164299823012326991', // Obtained from the socket.io server. Gives this (the master) control of the presentation
-			        id: '8354f589d63f3efb', // Obtained from socket.io server
-			        url: 'http://54.172.233.146:1948' // Location of socket.io server
-			    },
+    <section>
+      <h2>Q&amp;A</h2>
+    </section>
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js', async: true },
-        	{ src: 'plugin/multiplex/master.js', async: true }
-				]
-			});
+    <section>
+      <section>
+        <h2>Test Driven Development</h2>
+      </section>
+      <section>
+        <h2>How do we do TDD?</h2>
+        <ul>
+          <li>Write a failing test</li>
+          <li>Make the test pass</li>
+          <li>Refactor</li>
+        </ul>
+      </section>
+      <section>
+        <h2> <span style="color:red;">Red</span> =&gt; <span style="color:green;">Green</span> =&gt; <span style="color:yellow;">Refactor</span></h2>
+      </section>
+    </section>
 
-		</script>
+    <section>
+      <section>
+        <h2>TDD tutorial</h2>
+      </section>
+      <section>
+        <h2>Problem</h2>
+        <p>Write a program to convert an integer into roman numbers.</p>
+      </section>
+      <section>
+        <h2>Roman number system</h2>
+        <p>1 = I</p>
+        <p>5 = V</p>
+        <p>10 = X</p>
+        <p>50 = L</p>
+        <p>100 = C</p>
+        <p>500 = D</p>
+        <p>1000 = M</p>
+      </section>
+    </section>
 
-	</body>
+    <section>
+      <section>
+        <h2>Benifits of TDD</h2>
+      </section>
+      <section>
+        <h2>Step by step design</h2>
+      </section>
+      <section>
+        <h2>Unparalleled test coverage</h2>
+      </section>
+    </section>
+
+    <section>
+      <section>
+      </section>
+    </section>
+
+    <section>
+      <h1>Questions?</h1>
+    </section>
+    <section>
+      <h1>Thank You</h1>
+    </section>
+  </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+// Parallax scrolling
+// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+// parallaxBackgroundSize: '2100px 900px',
+
+multiplex: {
+// Example values. To generate your own, see the socket.io server instructions.
+secret: '14164299823012326991', // Obtained from the socket.io server. Gives this (the master) control of the presentation
+id: '8354f589d63f3efb', // Obtained from socket.io server
+url: 'http://54.172.233.146:1948' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js', async: true },
+{ src: 'plugin/multiplex/master.js', async: true }
+]
+});
+
+</script>
+
+</body>
 </html>
